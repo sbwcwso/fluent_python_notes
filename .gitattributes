@@ -1,0 +1,4 @@
+ch2/floats.bin filter=lfs diff=lfs merge=lfs -text
+ch2/floats-10M-lines.txt filter=lfs diff=lfs merge=lfs -text
+ch2/floats-10M.npy filter=lfs diff=lfs merge=lfs -text
+ch3/selected.arr filter=lfs diff=lfs merge=lfs -text
