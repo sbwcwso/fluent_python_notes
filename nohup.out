@@ -1,0 +1,38 @@
+Serving ['bobo__main__'] on port 8888...
+Traceback (most recent call last):
+  File "/usr/local/bin/bobo", line 8, in <module>
+    sys.exit(server())
+  File "/usr/local/lib/python3.6/dist-packages/boboserver.py", line 259, in server
+    run_server(app, options.port)
+  File "/usr/local/lib/python3.6/dist-packages/boboserver.py", line 44, in run_server
+    wsgiref.simple_server.make_server('', port, app).serve_forever()
+  File "/usr/lib/python3.6/wsgiref/simple_server.py", line 153, in make_server
+    server = server_class((host, port), handler_class)
+  File "/usr/lib/python3.6/socketserver.py", line 456, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.6/wsgiref/simple_server.py", line 50, in server_bind
+    HTTPServer.server_bind(self)
+  File "/usr/lib/python3.6/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.6/socketserver.py", line 470, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+Serving ['bobo__main__'] on port 8888...
+Traceback (most recent call last):
+  File "/usr/local/bin/bobo", line 8, in <module>
+    sys.exit(server())
+  File "/usr/local/lib/python3.6/dist-packages/boboserver.py", line 259, in server
+    run_server(app, options.port)
+  File "/usr/local/lib/python3.6/dist-packages/boboserver.py", line 44, in run_server
+    wsgiref.simple_server.make_server('', port, app).serve_forever()
+  File "/usr/lib/python3.6/wsgiref/simple_server.py", line 153, in make_server
+    server = server_class((host, port), handler_class)
+  File "/usr/lib/python3.6/socketserver.py", line 456, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.6/wsgiref/simple_server.py", line 50, in server_bind
+    HTTPServer.server_bind(self)
+  File "/usr/lib/python3.6/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.6/socketserver.py", line 470, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
