@@ -1,9 +1,9 @@
 import doctest
 
-from tombola import Tombola
+from ch11.tombola import Tombola
 
 # 要测试的模块
-import bingo, lotto, tombolist  # 导入真实子类和虚拟子类，用于测试
+import ch11.bingo, ch11.lotto, ch11.tombolist  # 导入真实子类和虚拟子类，用于测试
 TEST_FILE = 'tombola_tests.rst'
 TEST_MSG = '{0:16}{1.attempted:2} tests, {1.failed:2} failed - {2}'
 

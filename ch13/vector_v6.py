@@ -116,3 +116,13 @@ class Vector:
 
   def __pos__(self):
     return Vector(self)  # 构建一个新的实例
+
+  def __add__(self, other):
+    try:
+      pairs = itertools.zip_longest(self, other, fillvalue=0.0)
+      return Vector(a + b for a, b in pairs)
+    except TypeError:
+      return NotImplemented
+
+  def __radd__(self, other):
+    return self + other

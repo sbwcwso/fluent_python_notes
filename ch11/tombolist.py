@@ -1,6 +1,6 @@
 from random import randrange
 
-from tombola import Tombola
+from ch11.tombola import Tombola
 
 @Tombola.register  # 把 Tombolist 注册为 Tombola 的虚拟子类
 class TomboList(list):

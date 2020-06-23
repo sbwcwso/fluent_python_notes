@@ -1,6 +1,6 @@
 import random
 
-from tombola import Tombola
+from ch11.tombola import Tombola
 
 
 class LotteryBlower(Tombola):
