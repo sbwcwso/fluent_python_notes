@@ -32,10 +32,14 @@ DEST_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'downloads/
 COUNTRY_CODES_FILE = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'country_codes.txt')
 
 
-def save_flag(img, filename):
-  path = os.path.join(DEST_DIR, filename)
+def save_flag(img, filename, directory=None): 
+  if directory is None:
+    path = os.path.join(DEST_DIR, filename)
+  else:
+    path = os.path.join(directory, filename)
   with open(path, 'wb') as fp:
     fp.write(img)
+    # time.sleep(0.1)  # 用来模拟写入文件时阻塞
 
 
 def inital_report(cc_list, actual_req, server_label):
@@ -133,7 +137,7 @@ def process_args(defalut_concur_req):
     cc_list = expand_cc_args(args.every, args.all, args.cc, args.limit)
   except ValueError as exc:
     print(exc.args[0])
-    praser.print_usage()
+    parser.print_usage()
     sys.exit(1)
   if not cc_list:
     cc_list = sorted(POP20_CC)

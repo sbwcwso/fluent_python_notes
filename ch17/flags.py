@@ -11,11 +11,14 @@ BASE_URL = 'http://localhost:8002/flags'
 DEST_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)),'downloads/') 
 
 
-def save_flag(img, filename):
+def save_flag(img, filename, path_name=None):
   """
   把 img (字节序列) 保存到 DEST_DIR 目录中，命名为 filename
   """
-  path = os.path.join(DEST_DIR, filename)
+  if path_name is None:
+    path = os.path.join(DEST_DIR, filename)
+  else:
+    path = os.path.join(path_name, filename)
   with open(path, 'wb') as fp:
     fp.write(img)
 
