@@ -34,14 +34,10 @@ async def download_one(session, cc, base_url, semaphore, verbose):
 
 def download_many(cc_list, base_url, verbose, concur_req):
   loop = asyncio.get_event_loop()
-  executor = concurrent.futures.ThreadPoolExecutor(max_workers=12)  # 需要按此处方式进行设置，不然会报错
-  loop.set_default_executor(executor)  # 设置默认的 executor
-
-  coro = downloader_coro(cc_list, base_url, verbose, concur_req)
-  counts = loop.run_until_complete(coro)
-
-
-  executor.shutdown(wait=True)
+  with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:   # 需要按此处方式进行设置，不然会报错
+    loop.set_default_executor(executor)  # 设置默认的 executor
+    coro = downloader_coro(cc_list, base_url, verbose, concur_req)
+    counts = loop.run_until_complete(coro)
   loop.close()
   return counts
 

@@ -147,14 +147,14 @@ class UnicodeNameIndex:
 
         self.index = index
 
-    def word_rank(self, top=None):
+    def word_rank(self, top=None):  # 选按字符数目以降序排序，再按关键字排序
         res = [(len(self.index[key]), key) for key in self.index]
         res.sort(key=lambda item: (-item[0], item[1]))
         if top is not None:
             res = res[:top]
         return res
 
-    def word_report(self, top=None):
+    def word_report(self, top=None):  # 显示各个关键字中含有的字符数目
         for postings, key in self.word_rank(top):
             print('{:5} {}'.format(postings, key))
 
@@ -171,7 +171,7 @@ class UnicodeNameIndex:
         if not result_sets:
             return QueryResult(0, ())
 
-        result = functools.reduce(set.intersection, result_sets)
+        result = functools.reduce(set.intersection, result_sets)  # 取交集, 适用于由多个词进行查询
         result = sorted(result)  # must sort to support start, stop
         result_iter = itertools.islice(result, start, stop)
         return QueryResult(len(result),

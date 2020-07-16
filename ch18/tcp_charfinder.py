@@ -18,7 +18,7 @@ async def handle_queries(reader, writer):  # 这个协程要传给 asyncio.start
       query = data.decode().strip()  # 默认编码 utf8
     except UnicodeDecodeError:
       query = '\x00'
-    client = writer.get_extra_info('peername')  # 返回与套接子连接的远程地址
+    client = writer.get_extra_info('peername')  # 返回与套接字连接的远程地址
     print('Received from {}: {!r}'.format(client, query))  # 在服务器控制台中记录查询
     if query:
       if ord(query[:1]) < 32:

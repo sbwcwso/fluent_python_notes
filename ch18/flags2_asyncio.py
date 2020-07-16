@@ -37,8 +37,8 @@ async def download_one(session, cc, base_url, semaphore, verbose):
   semaphore 是 asyncio.Semaphore 类的实例，Semaphore 类是同步装置，用于限制并发请求数量
   """
   try:
-    with await semaphore:  # 在 await 中将 semaphore 当做上下文管理器使用，防止阻塞整个系统，如果 semaphore 超过所允许的最大值，则只有这个协程会阻塞
-      image = await get_flag(session, base_url, cc)  # 退出此 with 语句后，semaphore 计数器会递减，解除阻塞可能等待同一个 semaphore 对象的其它协程实例
+    with await semaphore:  # 在 await 中将 semaphore 当做上下文管理器使用，防止阻塞整个系统，如果 semaphore 为 0，则只有这个协程会阻塞。进入 with 语句时， semaphore 会递减
+      image = await get_flag(session, base_url, cc)  # 退出此 with 语句后，semaphore 计数器会递增，解除阻塞可能等待同一个 semaphore 对象的其它协程实例
   except web.HTTPNotFound:
     status = HTTPStatus.not_found
   except Exception as exc:
