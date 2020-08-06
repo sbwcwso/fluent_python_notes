@@ -57,7 +57,6 @@ def main(address='127.0.0.1', port=7878):
   except KeyboardInterrupt:  # 按 CTRL-C 键
     print('Server shutting down.')
   loop.run_until_complete(server.wait_closed())  # 关闭服务器
-  print('Server shutting down.')
   loop.close()  # 关闭事件循环
 
 

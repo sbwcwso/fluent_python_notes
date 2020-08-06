@@ -39,7 +39,7 @@ def save_flag(img, filename, directory=None):
     path = os.path.join(directory, filename)
   with open(path, 'wb') as fp:
     fp.write(img)
-    # time.sleep(0.1)  # 用来模拟写入文件时阻塞
+    time.sleep(0.1)  # 用来模拟写入文件时阻塞
 
 
 def inital_report(cc_list, actual_req, server_label):

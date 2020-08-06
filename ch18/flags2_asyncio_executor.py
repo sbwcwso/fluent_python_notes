@@ -43,6 +43,7 @@ def download_many(cc_list, base_url, verbose, concur_req):
 
 
 # 用新定义的函数替换相关模块中的函数
+# 因为 download_one 是由 ch18.flags2_asyncio 中的 downloader_coro 所驱动的，需要将其替换为当前模块中的函数
 sys.modules['ch18.flags2_asyncio'].download_one = download_one
 
 
