@@ -28,6 +28,8 @@ class ClassFive(metaclass=MetaAleph):
   def method_z(self):
     print('<[8]> ClassFive.method_z')
 
+  print('<[6]> ClassFive end')
+
 
 class ClassSix(ClassFive):
   print('<[9]> ClassSix body')
